@@ -4,7 +4,7 @@ import ApiInput from './components/ApiInput';
 import JsonResponse from './components/JsonResponse';
 
 function App() {
-  const [productId, setProductId] = useState('1'); // Default product ID to search
+  const [productId, setProductId] = useState('1');
   const [response, setResponse] = useState(null);
   const [status, setStatus] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -16,7 +16,8 @@ function App() {
     setStatus(null);
 
     try {
-      const res = await fetch(`http://localhost:3001/api/products/${productId}`);
+      // 👇 CAMBIA ESTA LÍNEA 👇
+      const res = await fetch(`https://api-playground-backend-q9hb.onrender.com/api/products/${productId}`);
       const data = await res.json();
       setResponse(data);
       setStatus(res.status);
